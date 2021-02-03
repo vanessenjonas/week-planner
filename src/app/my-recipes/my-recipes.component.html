@@ -1,0 +1,22 @@
+
+
+
+
+
+<div class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
+        <input  class="input" type="text" placeholder="Search">
+      </div>
+      <div class="column">
+        <button class="button is-success" (click)="addRecipe()">Add new recipes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <app-add-item *ngIf="showModal" (onClose)="showModal=false"></app-add-item>
+</div>
+
+

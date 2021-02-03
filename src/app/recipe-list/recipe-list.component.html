@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="section">
+
+    <h2 class="subtitle box">Receipes
+      <div class="content" style="display: flex; padding-left: 2rem"
+           cdkDropList
+           #recipeList="cdkDropList"
+           [cdkDropListData]="recipes"
+           [cdkDropListConnectedTo]="[oclock,nineoclock]"
+      >
+        <!--  <app-recipe-item class="column" [recipeItem]="recipe" *ngFor="let recipe of recipes"></app-recipe-item>-->
+        <div class="list">
+          <ul>
+            <div class="list-item" *ngFor="let recipe of recipes" cdkDrag>
+              <li class="box">{{recipe.name}}</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </h2>
+
+  </div>
+
+  <div class="section">
+    <h2 class="subtitle box">Monday
+      <div class="content" style="display: flex; padding-left: 2rem"
+      >
+
+        <!--  <app-recipe-item class="column" [recipeItem]="recipe" *ngFor="let recipe of recipes"></app-recipe-item>-->
+        <div class="list">
+          <ul>
+            <div class="list-item"
+                 cdkDropList
+                 #oclock="cdkDropList"
+                 [cdkDropListData]="aightOClock"
+                 [cdkDropListConnectedTo]="[recipeList]"
+                 (cdkDropListDropped)="drop($event)"
+            >
+              8:00<li *ngFor="let entry of aightOClock" class="box" cdkDrag>{{entry.name}}</li>
+            </div>
+          </ul>
+          <ul>
+            <div class="list-item"
+
+                 cdkDropList
+                 #nineoclock="cdkDropList"
+                 [cdkDropListData]="nineOClock"
+                 [cdkDropListConnectedTo]="[recipeList]"
+                 (cdkDropListDropped)="drop($event)"
+            >
+              9:00<li *ngFor="let entry of nineOClock" class="box" cdkDrag>{{entry.name}}</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </h2>
+
+  </div>
+
+</div>
